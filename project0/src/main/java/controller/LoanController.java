@@ -105,7 +105,7 @@ public class LoanController {
                 ctx.json(loansByUserID);
             }
             else
-                ctx.status(409).json("{\"error\":\"Cannot show you information you are not a manager :(\"}");
+                ctx.status(409).json("{\"error\":\"Cannot show you information you are not a manager or you are not the right user:(\"}");
         }
         else {
             ctx.status(401).json("{\"error\":\"Cannot change information because you have not logged in :(\"}");
