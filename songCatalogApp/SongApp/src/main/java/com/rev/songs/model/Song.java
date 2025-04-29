@@ -30,16 +30,21 @@ public class Song {
     @JoinColumn(name = "albumId", nullable = false)
     private Album album;
 
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
+
     public Song(){
 
     }
 
-    public Song(Long songId, String songName, String genre, Artist artist, Album album){
+    public Song(Long songId, String songName, String genre, Artist artist, Album album, User user){
         this.songId = songId;
         this.songName = songName;
         this.genre = genre;
         this.artist = artist;
         this.album = album;
+        this.user = user;
     }
 
     public Long getSongId(){
@@ -79,6 +84,14 @@ public class Song {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public User getUser(){
+        return user;
+    }
+
+    public void setUser(User user){
+        this.user = user;
     }
 
     @Override

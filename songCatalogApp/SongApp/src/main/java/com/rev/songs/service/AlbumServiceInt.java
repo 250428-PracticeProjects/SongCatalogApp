@@ -12,6 +12,6 @@ import java.util.Optional;
 public interface AlbumServiceInt {
 
     public List<Album> getAllAlbums();
-    public Optional<Album> getAlbumById();
+    public Optional<Album> getAlbumById(Long id);
     public Album saveAlbum(Album album);
 }

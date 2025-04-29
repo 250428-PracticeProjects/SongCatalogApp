@@ -2,17 +2,18 @@
 Title: Song Service
 Author: Galilea Yanely Vilches Segundo
 Date: April 28th, 2025
-Working on it
 */
 package com.rev.songs.service;
 
 import com.rev.songs.model.Song;
 import com.rev.songs.repository.SongRepository;
-import com.rev.songs.service.SongServiceInt;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
-public class SongService {
+@Service
+public class SongService implements SongServiceInt{
 
     private final SongRepository songRepository;
 
@@ -22,6 +23,17 @@ public class SongService {
 
     public List<Song> getAllSongs(){
         List<Song> allSongs =  songRepository.findAll();
+        return allSongs;
+    }
+
+    public Optional<Song> getSongById(Long id){
+        Optional<Song> foundedSong = songRepository.findById(id);
+        return foundedSong;
+    }
+
+    public Song saveSong(Song song){
+        Song newSong = songRepository.save(song);
+        return newSong;
     }
 
 }
